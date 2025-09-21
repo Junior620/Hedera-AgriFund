@@ -7,6 +7,12 @@
 
 > **Tokenisation des récoltes comme garantie on-chain sur Hedera, connectant les agriculteurs avec les prêteurs via des smart contracts qui séquestre les tokens RWA et distribuent des stablecoins—transparent, peu coûteux, anti-double-financement.**
 
+---
+
+**🌍 Languages**: [🇫🇷 Français](README.md) | [🇺🇸 English](README_EN.md)
+
+---
+
 ## 📋 Table des Matières
 
 - [🎯 Problématique](#-problématique)
