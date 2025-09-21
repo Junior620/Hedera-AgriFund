@@ -1,0 +1,26 @@
+<svg width="80" height="60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="soc2Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10B981;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="80" height="60" rx="8" fill="url(#soc2Gradient)"/>
+  
+  <!-- Document icon -->
+  <rect x="25" y="10" width="30" height="35" rx="2" fill="white"/>
+  <rect x="28" y="15" width="24" height="2" fill="#059669"/>
+  <rect x="28" y="20" width="20" height="2" fill="#059669"/>
+  <rect x="28" y="25" width="24" height="2" fill="#059669"/>
+  <rect x="28" y="30" width="18" height="2" fill="#059669"/>
+  
+  <!-- Checkmark -->
+  <circle cx="50" cy="35" r="6" fill="#059669"/>
+  <path d="M47 35 L49 37 L53 33" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  
+  <!-- Text -->
+  <text x="40" y="52" text-anchor="middle" fill="white" font-family="Arial" font-size="8" font-weight="bold">SOC 2</text>
+  <text x="40" y="58" text-anchor="middle" fill="white" font-family="Arial" font-size="6">Type II</text>
+</svg>

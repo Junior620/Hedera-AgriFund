@@ -1,0 +1,187 @@
+/* Hero Section - Débordement Fix */
+
+/* === Hero Section Containment === */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden !important; /* Force le confinement */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hero Background - Confiné strictement */
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Hero Gradient - Même confinement */
+.hero-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+/* Hero Container - Confinement du contenu */
+.hero-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+    overflow: visible; /* Permettre la visibilité du contenu */
+}
+
+@media (min-width: 1024px) {
+    .hero-container {
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 4rem;
+        padding: 3rem 2rem;
+    }
+}
+
+/* Hero Visual - Containment strict */
+.hero-visual {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 80vh; /* LIMITE la hauteur pour éviter le débordement */
+    overflow: visible;
+}
+
+@media (min-width: 1024px) {
+    .hero-visual {
+        display: block;
+    }
+}
+
+/* Smart Loan Card - Confinement absolu */
+.hero-visual .smart-loan-card {
+    position: relative;
+    z-index: 6;
+    margin: 0; /* Pas de marge externe */
+    max-width: 320px;
+    width: 100%;
+    transform: none; /* Reset des transforms qui peuvent déborder */
+}
+
+/* Animation de hover confinée */
+.hero-visual .smart-loan-card:hover {
+    transform: translateY(-2px); /* Mouvement vertical seulement */
+}
+
+/* === Transition Hero → Metrics === */
+
+/* Assurer une transition parfaite */
+.metrics-strip {
+    position: relative;
+    z-index: 15; /* Au-dessus de tout */
+    margin-top: -1rem; /* Légère superposition */
+    background: var(--color-neutral-50) !important;
+    border-top: 2px solid rgba(255, 255, 255, 0.1); /* Séparation visible */
+}
+
+.dark-theme .metrics-strip {
+    background: var(--color-neutral-800) !important;
+    border-top: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+/* === Body Background Fix === */
+body {
+    background: linear-gradient(135deg,
+        rgba(30, 64, 175, 0.95) 0%,
+        rgba(0, 212, 170, 0.85) 50%,
+        rgba(16, 185, 129, 0.9) 100%) !important;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* Override pour tous les thèmes */
+.light-theme,
+.dark-theme {
+    background: linear-gradient(135deg,
+        rgba(30, 64, 175, 0.95) 0%,
+        rgba(0, 212, 170, 0.85) 50%,
+        rgba(16, 185, 129, 0.9) 100%) !important;
+}
+
+/* === Mobile Optimizations === */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 100vh;
+        padding-bottom: 2rem;
+    }
+
+    .hero-container {
+        padding: 1rem;
+        gap: 2rem;
+    }
+
+    .hero-visual {
+        max-height: none; /* Pas de limite sur mobile */
+        margin-top: 1rem;
+    }
+
+    .hero-visual .smart-loan-card {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .metrics-strip {
+        margin-top: 0; /* Pas d'overlap sur mobile */
+        padding-top: 3rem;
+    }
+
+    body {
+        background-attachment: scroll; /* Meilleure performance mobile */
+    }
+}
+
+/* === Fix Z-index Stack === */
+.navbar { z-index: 1000; }
+.hero { z-index: 1; }
+.hero-background { z-index: 2; }
+.hero-gradient { z-index: 3; }
+.hero-container { z-index: 10; }
+.hero-visual { z-index: 11; }
+.smart-loan-card { z-index: 12; }
+.metrics-strip { z-index: 15; }
+
+/* === Scroll Behavior Fix === */
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* Empêcher le scroll horizontal */
+}
+
+body {
+    overflow-x: hidden; /* Empêcher le scroll horizontal */
+}
+
+/* === Debug Helpers (Remove in Production) === */
+/*
+.hero {
+    border: 2px solid red;
+}
+.hero-visual {
+    border: 2px solid blue;
+}
+.smart-loan-card {
+    border: 2px solid green;
+}
+*/

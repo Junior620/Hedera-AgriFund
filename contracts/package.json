@@ -1,0 +1,42 @@
+{
+  "name": "hedera-agrifund-contracts",
+  "version": "1.0.0",
+  "description": "Smart contracts for Hedera AgriFund decentralized micro-finance platform",
+  "main": "index.js",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:testnet": "hardhat run scripts/deploy.js --network hedera-testnet",
+    "deploy:mainnet": "hardhat run scripts/deploy.js --network hedera-mainnet",
+    "verify": "hardhat verify",
+    "flatten": "hardhat flatten",
+    "coverage": "hardhat coverage",
+    "lint": "solhint 'contracts/**/*.sol'",
+    "lint:fix": "solhint 'contracts/**/*.sol' --fix"
+  },
+  "keywords": [
+    "hedera",
+    "defi",
+    "agriculture",
+    "rwa",
+    "smart-contracts",
+    "solidity"
+  ],
+  "author": "Hedera AgriFund Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^3.0.2",
+    "@openzeppelin/hardhat-upgrades": "^1.28.0",
+    "hardhat": "^2.17.2",
+    "solhint": "^3.6.2",
+    "@typechain/hardhat": "^6.1.6",
+    "typechain": "^8.3.1"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.3",
+    "@openzeppelin/contracts-upgradeable": "^4.9.3",
+    "@hashgraph/sdk": "^2.37.0",
+    "dotenv": "^16.3.1"
+  }
+}
+

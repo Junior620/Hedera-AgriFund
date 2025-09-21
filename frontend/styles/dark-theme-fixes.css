@@ -1,0 +1,525 @@
+/* Dark Theme Visibility Fixes */
+
+/* Light theme hero section - Force le dégradé coloré */
+.light-theme .hero-background,
+body:not(.dark-theme) .hero-background,
+body.light-theme .hero-background {
+    background: linear-gradient(135deg,
+        rgba(30, 64, 175, 0.95) 0%,
+        rgba(0, 212, 170, 0.85) 50%,
+        rgba(16, 185, 129, 0.9) 100%) !important;
+}
+
+/* Dark theme variables */
+.dark-theme {
+    --text-primary: #ffffff;
+    --text-secondary: #e5e7eb;
+    --text-muted: #9ca3af;
+    --bg-primary: #111827;
+    --bg-secondary: #1f2937;
+    --bg-tertiary: #374151;
+    --primary-color: #00d4aa;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+}
+
+/* Global text elements */
+.dark-theme body {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+}
+
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme h4,
+.dark-theme h5,
+.dark-theme h6 {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme p {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme span {
+    color: var(--text-secondary) !important;
+}
+
+/* Hero section dark theme */
+.dark-theme .hero-title,
+.dark-theme .hero-title .title-main,
+.dark-theme .hero-title .title-accent {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .hero-subtitle {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .hero-badge {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: var(--text-primary) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.dark-theme .hero-badge span {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .proof-item {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .proof-stat {
+    color: var(--primary-color) !important;
+}
+
+.dark-theme .hero-guarantee {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .cta-helper {
+    color: var(--text-muted) !important;
+}
+
+/* Dark theme hero background */
+.dark-theme .hero-background {
+    background: linear-gradient(135deg,
+        rgba(23, 23, 23, 0.95) 0%,
+        rgba(59, 130, 246, 0.2) 35%,
+        rgba(34, 197, 94, 0.2) 100%) !important;
+}
+
+/* Navigation dark theme */
+.dark-theme .navbar {
+    background: rgba(17, 24, 39, 0.95) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-theme .nav-brand-name {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .nav-brand-tagline {
+    color: var(--text-muted) !important;
+}
+
+.dark-theme .nav-link {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .nav-link:hover,
+.dark-theme .nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+.dark-theme .nav-btn {
+    color: var(--text-primary) !important;
+}
+
+/* Metrics section dark theme */
+.dark-theme .metrics-strip {
+    background: var(--bg-secondary) !important;
+}
+
+.dark-theme .metrics-subtitle {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .metric-item {
+    background: var(--bg-tertiary) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-theme .metric-number {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .metric-label {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .metric-proof {
+    color: var(--text-muted) !important;
+}
+
+.dark-theme .metric-number.success {
+    color: var(--success-color) !important;
+}
+
+/* Cards and sections dark theme */
+.dark-theme .section-title {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .section-subtitle {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .value-props {
+    background: var(--bg-primary) !important;
+}
+
+.dark-theme .value-prop-card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-theme .value-prop-card h3 {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .value-prop-card p {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .feature-list li {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .card-title h3 {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .card-title p {
+    color: var(--text-muted) !important;
+}
+
+/* Hero visual card dark theme */
+.dark-theme .hero-card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-theme .metric-label {
+    color: var(--text-muted) !important;
+}
+
+.dark-theme .metric-value {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .progress-text {
+    color: var(--text-secondary) !important;
+}
+
+/* Timeline and steps dark theme */
+.dark-theme .how-it-works {
+    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary)) !important;
+}
+
+.dark-theme .step-content {
+    background: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .step-content h3 {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .step-content p {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .step-time {
+    background: rgba(0, 212, 170, 0.1) !important;
+    color: var(--primary-color) !important;
+}
+
+/* Case studies dark theme */
+.dark-theme .case-studies {
+    background: var(--bg-secondary) !important;
+}
+
+.dark-theme .case-study-slide {
+    background: var(--bg-tertiary) !important;
+}
+
+.dark-theme .case-content h3 {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .case-goal {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .kpi-label {
+    color: var(--text-muted) !important;
+}
+
+.dark-theme .kpi-value {
+    color: var(--success-color) !important;
+}
+
+/* Pricing section dark theme */
+.dark-theme .pricing {
+    background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary)) !important;
+}
+
+.dark-theme .pricing-card {
+    background: var(--bg-tertiary) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-theme .pricing-header h3 {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .price-amount {
+    color: var(--primary-color) !important;
+}
+
+.dark-theme .price-period {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .pricing-features li {
+    color: var(--text-secondary) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Trust section dark theme */
+.dark-theme .trust-section {
+    background: var(--bg-primary) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-theme .trust-category h3 {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .trust-item {
+    background: var(--bg-tertiary) !important;
+}
+
+.dark-theme .trust-item span {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .trust-text {
+    color: var(--text-muted) !important;
+}
+
+.dark-theme .trust-logo {
+    color: var(--text-secondary) !important;
+    border-color: var(--bg-tertiary) !important;
+}
+
+.dark-theme .trust-logo:hover {
+    color: var(--primary-color) !important;
+}
+
+/* FAQ section dark theme */
+.dark-theme .faq {
+    background: var(--bg-secondary) !important;
+}
+
+.dark-theme .faq-item {
+    background: var(--bg-tertiary) !important;
+}
+
+.dark-theme .faq-question {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .faq-question:hover {
+    color: var(--primary-color) !important;
+}
+
+.dark-theme .faq-answer p {
+    color: var(--text-secondary) !important;
+}
+
+/* Contact demo section dark theme */
+.dark-theme .contact-demo {
+    background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary)) !important;
+}
+
+.dark-theme .contact-info h2 {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .contact-info p {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .stat-number {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .stat-label {
+    color: var(--text-muted) !important;
+}
+
+.dark-theme .demo-form {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-theme .demo-form h3 {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .form-group label {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .form-group input,
+.dark-theme .form-group select,
+.dark-theme .form-group textarea {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .form-group input::placeholder,
+.dark-theme .form-group textarea::placeholder {
+    color: var(--text-muted) !important;
+}
+
+/* Footer dark theme */
+.dark-theme .footer {
+    background: var(--bg-primary) !important;
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .footer-brand .brand-name {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .footer-brand .brand-tagline {
+    color: var(--text-muted) !important;
+}
+
+.dark-theme .footer-brand p {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .footer-column h4 {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .footer-column a {
+    color: var(--text-muted) !important;
+}
+
+.dark-theme .footer-column a:hover {
+    color: var(--primary-color) !important;
+}
+
+.dark-theme .footer-bottom {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-theme .footer-bottom-content p {
+    color: var(--text-muted) !important;
+}
+
+/* Social media icons dark theme fixes */
+.dark-theme .social-links a {
+    background: var(--bg-tertiary) !important;
+    color: var(--text-secondary) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-theme .social-links a:hover {
+    background: var(--primary-color) !important;
+    color: var(--bg-primary) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 212, 170, 0.3) !important;
+}
+
+.dark-theme .social-links a i {
+    color: inherit !important;
+}
+
+/* Buttons dark theme contrast */
+.dark-theme .btn-secondary {
+    background: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--bg-tertiary) !important;
+}
+
+.dark-theme .btn-secondary:hover {
+    background: var(--primary-color) !important;
+    color: var(--bg-primary) !important;
+}
+
+.dark-theme .btn-outline {
+    border-color: var(--primary-color) !important;
+    color: var(--primary-color) !important;
+}
+
+.dark-theme .btn-outline:hover {
+    background: var(--primary-color) !important;
+    color: var(--bg-primary) !important;
+}
+
+/* Utility classes for dark theme */
+.dark-theme .text-link {
+    color: var(--primary-color) !important;
+}
+
+.dark-theme .text-link:hover {
+    color: var(--success-color) !important;
+}
+
+/* Mobile menu dark theme */
+.dark-theme .mobile-menu {
+    background: rgba(17, 24, 39, 0.98) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-theme .mobile-nav-link {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .mobile-nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+/* Dropdown menus dark theme */
+.dark-theme .dropdown-menu {
+    background: var(--bg-tertiary) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-theme .dropdown-item {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .dropdown-item:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Additional text elements that might be missed */
+.dark-theme .badge,
+.dark-theme .tag,
+.dark-theme .chip {
+    background: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .link {
+    color: var(--primary-color) !important;
+}
+
+.dark-theme .link:hover {
+    color: var(--success-color) !important;
+}
+
+/* Ensure all text is visible */
+.dark-theme * {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-theme *:not(.btn):not(.nav-btn):not(.mobile-nav-btn):not(.hero-background) {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme h1, .dark-theme h2, .dark-theme h3, .dark-theme h4, .dark-theme h5, .dark-theme h6 {
+    color: var(--text-primary) !important;
+}

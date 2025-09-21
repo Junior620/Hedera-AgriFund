@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b1220">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Hedera AgriFund">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" sizes="192x192" href="assets/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/icon-16x16.png">
+    
+    <!-- Skip Links for Accessibility -->
+    <style>
+        /* CORRECTION COMPLÈTE - Supprimer TOUT le bleu #1e40af */
+
+        /* Force un fond neutre partout */
+        html {
+            background-color: #ffffff !important;
+        }
+
+        html.dark-theme,
+        html[data-theme="dark"] {
+            background-color: #0b1220 !important;
+        }
+
+        body {
+            background-color: #ffffff !important;
+            margin: 0;
+            padding: 0;
+        }
+
+        .dark-theme body,
+        body.dark-theme,
+        html.dark-theme body {
+            background-color: #0b1220 !important;
+        }
+
+        /* Variables CSS corrigées */
+        :root {
+            --primary-color: #00d4aa;
+            --primary-dark: #00b894;
+            --secondary-color: #0066cc;
+            --accent-color: #ff6b35;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --dark-color: #1a1a1a;
+            --light-color: #ffffff;
+            --gray-light: #f8f9fa;
+            --gray-medium: #6c757d;
+            --gray-dark: #343a40;
+
+            /* Couleur de fond neutre */
+            --body-bg-light: #ffffff;
+            --body-bg-dark: #0b1220;
+        }
+        
+        /* Hero section avec dégradé mais SANS bleu dominant */
+        .hero-background {
+            background: linear-gradient(135deg,
+                rgba(0, 212, 170, 0.9) 0%,
+                rgba(16, 185, 129, 0.85) 50%,
+                rgba(34, 197, 94, 0.8) 100%) !important;
+            background-attachment: fixed !important;
+            background-size: cover !important;
+            background-repeat: no-repeat !important;
+            background-position: center center !important;
+        }
+
+        /* Tous les modes utilisent le même dégradé vert/cyan sans bleu */
+        .light-theme .hero-background,
+        body.light-theme .hero-background,
+        body:not(.dark-theme) .hero-background,
+        .dark-theme .hero-background,
+        body.dark-theme .hero-background {
+            background: linear-gradient(135deg,
+                rgba(0, 212, 170, 0.9) 0%,
+                rgba(16, 185, 129, 0.85) 50%,
+                rgba(34, 197, 94, 0.8) 100%) !important;
+            background-attachment: fixed !important;
+        }
+
+        /* Hero section - COMPLÈTEMENT FIXE */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            background-color: transparent;
+        }
+        
+        /* Arrêter TOUTES les animations dans la hero */
+        .hero *,
+        .hero *::before,
+        .hero *::after {
+            animation: none !important;
+            transform: none !important;
+            transition: none !important;
+        }
+        
+        /* Exception pour les hover effects seulement */
+        .hero .hero-card:hover {
+            transform: translateX(-80px) translateY(-5px) !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+        }
+
+        /* Toutes les sections après hero ont un fond solide */
+        section:not(.hero) {
+            background-color: #ffffff !important;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Mode sombre pour les sections */
+        .dark-theme section:not(.hero),
+        body.dark-theme section:not(.hero),
+        html.dark-theme section:not(.hero) {
+            background-color: #0b1220 !important;
+        }
+
+        /* Assurer que metrics-strip couvre bien */
+        .metrics-strip {
+            position: relative;
+            z-index: 15;
+            background-color: #ffffff !important;
+            margin-top: 0;
+            padding-top: 4rem;
+        }
+
+        /* Mode sombre pour metrics-strip */
+        .dark-theme .metrics-strip,
+        body.dark-theme .metrics-strip,
+        html.dark-theme .metrics-strip {
+            background-color: #0b1220 !important;
+        }
+
+        /* Container principal */
+        main {
+            background-color: #ffffff;
+            position: relative;
+            z-index: 5;
+        }
+
+        .dark-theme main,
+        body.dark-theme main,
+        html.dark-theme main {
+            background-color: #0b1220;
+        }
+
+        /* Hero container et visual */
+        .hero-container {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-visual {
+            position: relative;
+            z-index: 5;
+        }
+
+        /* Smart Loan Card */
+        .smart-loan-card {
+            position: relative;
+            z-index: 6;
+            margin-bottom: 0 !important;
+        }
+
+        /* Fallback pour éviter le fond noir */
+        body {
+            background-color: #0b1220 !important; /* Couleur neutre sombre au lieu du bleu */
+        }
+
+        .dark-theme body {
+            background-color: #0b1220 !important;
+        }
+
+        /* Mode light - fond blanc */
+        .light-theme body,
+        body:not(.dark-theme) {
+            background-color: #ffffff !important;
+        }
+
+        /* Assurer que toutes les sections ont un fond solide */
+        section:not(.hero) {
+            background-color: #ffffff;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Mode sombre pour les sections */
+        .dark-theme section:not(.hero),
+        body.dark-theme section:not(.hero) {
+            background-color: #0b1220;
+        }
+
+        /* Assurer que la section suivante couvre bien */
+        .metrics-strip {
+            position: relative;
+            z-index: 8;
+            background-color: #ffffff;
+            margin-top: 0; /* Supprimer la marge négative qui peut causer des problèmes */
+        }
+
+        /* Mode sombre pour metrics-strip */
+        .dark-theme .metrics-strip,
+        body.dark-theme .metrics-strip {
+            background-color: #0b1220;
+        }
+
+        /* Skip links */
+        .skip-links {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+            z-index: 10000;
+            transition: top 0.3s;
+        }
+        .skip-links:focus-within {
+            top: 6px;
+        }
+        .skip-links a {
+            color: white;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        
+        /* Metrics improvements */
+        .metrics-subtitle {
+            text-align: center;
+            color: var(--gray-medium);
+            margin-bottom: 2rem;
+        }
+        
+        .metric-proof {
+            font-size: 12px;
+            color: var(--gray-medium);
+            margin-top: 4px;
+        }
+        
+        .metric-item.highlight {
+            position: relative;
+        }
+        
+        .metric-item.highlight::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 12px;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .flag-icon {
+            margin-right: 0.25rem;
+        }
+        
+        /* Fix carousel images */
+        .case-image {
+            background: none !important;
+            overflow: hidden;
+        }
+        
+        .case-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block !important;
+            opacity: 1 !important;
+        }
+    </style>
+
+    <title>Hedera AgriFund - Decentralized Microfinance. Real-World Assets. Hedera-Powered.</title>
+    <meta name="description" content="Revolutionary decentralized microfinance platform connecting farmers with global lenders through tokenized real-world assets on Hedera blockchain.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/modern-ui.css">
+    <link rel="stylesheet" href="styles/hero-refined.css">
+    <link rel="stylesheet" href="styles/smart-loan-card.css">
+    <link rel="stylesheet" href="styles/section-spacing.css">
+    <link rel="stylesheet" href="styles/hero-overflow-fix.css">
+    <link rel="stylesheet" href="styles/hero-canvas.css">
+    <link rel="stylesheet" href="styles/accessibility.css">
+    <link rel="stylesheet" href="styles/dark-theme-fixes.css">
+    <!-- CORRECTION Z-INDEX HERO - Doit être chargé en dernier pour priorité -->
+    <link rel="stylesheet" href="styles/hero-z-index-fix.css">
+    <!-- CORRECTION IMAGES CAROUSEL - Debug et correction forcée -->
+    <link rel="stylesheet" href="styles/carousel-image-fix.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Performance optimizations -->
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    <link rel="preload" href="styles/modern-ui.css" as="style">
+</head>
+<body class="light-theme">
+    <!-- Accessibility Skip Links -->
+    <div class="skip-links">
+        <a href="#main-content">Skip to main content</a>
+        <a href="#navbar">Skip to navigation</a>
+    </div>
+    
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Processing transaction...</p>
+        </div>
+    </div>
+    
+    <!-- Toast Notification Container -->
+    <div id="notificationContainer" class="notification-container"></div>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-flex">
+                <!-- Brand Logo -->
+                <div class="nav-brand">
+                    <div class="nav-logo-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="nav-brand-text">
+                        <span class="nav-brand-name">Hedera AgriFund</span>
+                        <span class="nav-brand-tagline">Powered by Hedera</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="nav-desktop">
+                    <!-- Navigation Links -->
+                    <div class="nav-links">
+                        <a href="#how-it-works" class="nav-link">How it Works</a>
+                        <a href="#pricing" class="nav-link">Rates</a>
+                        <a href="#success-stories" class="nav-link">Success Stories</a>
+                        <a href="#faq" class="nav-link">FAQ</a>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="nav-actions">
+                        <button onclick="openLenderOnboarding()" class="nav-btn nav-btn-secondary">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Invest & Earn</span>
+                        </button>
+                        <button onclick="openFarmerOnboarding()" class="nav-btn nav-btn-primary">
+                            <i class="fas fa-seedling"></i>
+                            <span>Get Loan</span>
+                        </button>
+                    </div>
+
+                    <!-- Utilities -->
+                    <div class="nav-utilities">
+                        <!-- Theme Toggle -->
+                        <button onclick="toggleTheme()" class="nav-utility-btn" aria-label="Toggle dark mode">
+                            <i class="fas fa-moon"></i>
+                        </button>
+
+                        <!-- Language Toggle -->
+                        <button onclick="toggleLanguage()" class="nav-language-btn" id="languageToggle">
+                            <span>🇫🇷</span>
+                            <span>FR</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="mobile-menu-btn" aria-label="Toggle menu" id="mobileMenuButton">
+                    <div class="mobile-menu-icon">
+                        <span class="mobile-menu-line"></span>
+                        <span class="mobile-menu-line"></span>
+                        <span class="mobile-menu-line"></span>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu" id="mobileMenu">
+                <div class="mobile-menu-content">
+                    <!-- Mobile Navigation Links -->
+                    <div class="mobile-nav-links">
+                        <a href="#how-it-works" class="mobile-nav-link">How it Works</a>
+                        <a href="#pricing" class="mobile-nav-link">Rates</a>
+                        <a href="#success-stories" class="mobile-nav-link">Success Stories</a>
+                        <a href="#faq" class="mobile-nav-link">FAQ</a>
+                    </div>
+
+                    <!-- Mobile Action Buttons -->
+                    <div class="mobile-nav-actions">
+                        <button onclick="openLenderOnboarding()" class="mobile-nav-btn mobile-nav-btn-secondary">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Invest & Earn</span>
+                        </button>
+                        <button onclick="openFarmerOnboarding()" class="mobile-nav-btn mobile-nav-btn-primary">
+                            <i class="fas fa-seedling"></i>
+                            <span>Get Loan</span>
+                        </button>
+                    </div>
+
+                    <!-- Mobile Utilities -->
+                    <div class="mobile-nav-utilities">
+                        <button onclick="toggleTheme()" class="mobile-utility-btn">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                        <button onclick="toggleLanguage()" class="mobile-language-btn">
+                            <span>🇫🇷</span>
+                            <span>FR</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main id="main-content">
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <!-- Reserved space for Three.js interactive canvas -->
+            <div id="hero-canvas" class="hero-canvas"></div>
+            <div class="hero-gradient"></div>
+        </div>
+
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-star"></i>
+                    <span>Built on Hedera Hashgraph</span>
+                </div>
+
+                <div class="headline-wrap">
+                    <h1 class="hero-title">Farm loan in 24h. Crops as collateral.</h1>
+                    <p class="hero-subtitle">No banks. Transparent rates. Hedera-secured.</p>
+                </div>
+
+                <div class="social-proof-line">
+                    <span class="proof-item"><i class="fas fa-check-circle"></i> $2.3M+ funded</span>
+                    <span class="proof-separator">•</span>
+                    <span class="proof-item"><i class="fas fa-shield-check"></i> 97% repaid</span>
+                    <span class="proof-separator">•</span>
+                    <span class="proof-item"><i class="fas fa-users"></i> 1,247 farmers</span>
+                </div>
+
+                <div class="hero-actions">
+                    <button class="btn btn-hero-primary" onclick="startFarmerOnboarding()" aria-describedby="farmer-help">
+                        <span>Get Loan</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="btn btn-hero-ghost" onclick="watchDemo()" aria-label="Watch 2-minute demo video">
+                        <i class="fas fa-play"></i>
+                        <span>Watch 2-min Demo</span>
+                    </button>
+                    <div class="cta-helper">Takes ~3 minutes</div>
+                    <div class="persona-switch">
+                        <a href="#lender-onboarding" class="text-link">I'm a Lender</a>
+                    </div>
+                </div>
+                <div class="hero-guarantee">
+                    <i class="fas fa-info-circle"></i>
+                    <span>No hidden fees • Fixed low costs • <a href="#fees" class="underline">View fee table</a></span>
+                </div>
+                <div id="farmer-help" class="sr-only">Start loan application process for farmers</div>
+
+                <div class="hero-trust">
+                    <span class="trust-text">Example partners:</span>
+                    <div class="trust-logos">
+                        <a href="https://hedera.com" class="trust-logo" target="_blank" rel="noopener">Hedera</a>
+                        <span class="trust-separator">•</span>
+                        <span class="trust-logo">AgriCoop</span>
+                        <span class="trust-separator">•</span>
+                        <span class="trust-logo">FarmTech</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <!-- Smart Loan Request Card - Optimized for Conversion -->
+                <article class="smart-loan-card"
+                         role="region"
+                         aria-labelledby="loan-title"
+                         aria-describedby="loan-description">
+
+                    <!-- Accessibility: Screen Reader Description -->
+                    <div id="loan-description" class="sr-only">
+                        Smart loan request card showing loan details for a coffee farmer in Kenya
+                    </div>
+
+                    <!-- Card Header -->
+                    <header class="card-header">
+                        <!-- App Icon with Leaf Symbol -->
+                        <div class="app-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z"/>
+                            </svg>
+                        </div>
+
+                        <!-- Title Section -->
+                        <div class="card-title-section">
+                            <h4 id="loan-title" class="card-title">Smart Loan Request</h4>
+                            <p class="card-subtitle">Coffee Farmer, Kenya</p>
+                        </div>
+                    </header>
+
+                    <!-- Metrics Grid -->
+                    <section class="metrics-grid" aria-label="Loan metrics">
+
+                        <!-- Requested Amount -->
+                        <div class="metric-tile"
+                             tabindex="0"
+                             role="button"
+                             aria-label="Requested amount: $5,000">
+                            <span class="metric-label" aria-hidden="true">REQUESTED</span>
+                            <span class="metric-value">$5,000</span>
+                        </div>
+
+                        <!-- Collateral -->
+                        <div class="metric-tile"
+                             tabindex="0"
+                             role="button"
+                             aria-label="Collateral: 2,500 kg Coffee">
+                            <span class="metric-label" aria-hidden="true">COLLATERAL</span>
+                            <span class="metric-value">2,500kg Coffee</span>
+                        </div>
+
+                        <!-- APR - Highlighted for Conversion -->
+                        <div class="metric-tile apr-highlight"
+                             tabindex="0"
+                             role="button"
+                             aria-label="Annual Percentage Rate: 8.5%">
+                            <span class="metric-label" aria-hidden="true">APR</span>
+                            <span class="metric-value success">8.5%</span>
+                        </div>
+
+                    </section>
+
+                    <!-- Progress Section -->
+                    <section class="progress-section" aria-label="Funding progress">
+                        <div class="progress-header">
+                            <span class="progress-label">Funding Progress</span>
+                            <span class="progress-percentage" aria-live="polite">85% Funded</span>
+                        </div>
+
+                        <div class="progress-bar"
+                             role="progressbar"
+                             aria-valuenow="85"
+                             aria-valuemin="0"
+                             aria-valuemax="100"
+                             aria-label="Funding progress: 85 percent complete">
+                            <div class="progress-fill" id="smartLoanProgressFill"></div>
+                        </div>
+                    </section>
+
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Strip -->
+    <section class="metrics-strip" aria-label="Platform statistics">
+        <div class="container">
+            <div class="metrics-header">
+                <h2 class="sr-only">Platform Performance</h2>
+                <p class="metrics-subtitle">Trusted by farmers across 12 countries</p>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric-item">
+                    <div class="metric-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-number" data-count="1247" aria-label="1,247 farmers financed">1,247</div>
+                        <div class="metric-label">Farmers Helped</div>
+                        <div class="metric-proof">✓ Blockchain verified</div>
+                    </div>
+                </div>
+                <div class="metric-item highlight">
+                    <div class="metric-icon success">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-number success" data-count="97" data-suffix="%" aria-label="97% repayment rate">97%</div>
+                        <div class="metric-label">Success Rate</div>
+                        <div class="metric-proof">vs 85% industry avg</div>
+                    </div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-number" data-count="2.3" data-prefix="$" data-suffix="M" aria-label="$2.3 million loans processed">$2.3M</div>
+                        <div class="metric-label">Total Funded</div>
+                        <div class="metric-proof">Last 12 months</div>
+                    </div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-number" data-count="24" data-suffix="h" aria-label="24 hours average approval time">24h</div>
+                        <div class="metric-label">Fast Approval</div>
+                        <div class="metric-proof">vs 30 days banks</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Propositions -->
+    <section id="solutions" class="value-props">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Revolutionary DeFi Solutions for Agriculture</h2>
+                <p class="section-subtitle">Bridging traditional farming with cutting-edge blockchain technology</p>
+            </div>
+
+            <div class="value-props-grid">
+                <div class="value-prop-card glassmorphism" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Tokenized Collateral</h3>
+                    <p>Transform your crops and agricultural assets into digital tokens that serve as loan collateral, unlocking liquidity without losing ownership.</p>
+                    <ul class="feature-list">
+                        <li>Real-world asset backing</li>
+                        <li>Instant liquidity access</li>
+                        <li>Ownership retention</li>
+                    </ul>
+                </div>
+
+                <div class="value-prop-card glassmorphism" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Stablecoin Microloans</h3>
+                    <p>Access stable, predictable financing through USDC-based microloans with transparent terms and competitive rates.</p>
+                    <ul class="feature-list">
+                        <li>Price stability guaranteed</li>
+                        <li>Global accessibility</li>
+                        <li>Instant transfers</li>
+                    </ul>
+                </div>
+
+                <div class="value-prop-card glassmorphism" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-icon">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+                    <h3>Smart Escrow</h3>
+                    <p>Automated, trustless escrow powered by Hedera smart contracts ensures secure transactions and timely fund releases.</p>
+                    <ul class="feature-list">
+                        <li>Zero-trust automation</li>
+                        <li>Milestone-based releases</li>
+                        <li>Dispute resolution</li>
+                    </ul>
+                </div>
+
+                <div class="value-prop-card glassmorphism" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-icon">
+                        <i class="fas fa-umbrella"></i>
+                    </div>
+                    <h3>Parametric Insurance</h3>
+                    <p>Weather-based parametric insurance automatically compensates for crop losses due to climate events.</p>
+                    <ul class="feature-list">
+                        <li>Automated payouts</li>
+                        <li>Weather data oracles</li>
+                        <li>Risk mitigation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Three simple steps to get your farm loan</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-step" data-aos="fade-right" data-aos-delay="100">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-upload"></i>
+                        </div>
+                        <h3>Upload Your Crops</h3>
+                        <p>Take photos of your harvest. Our partners verify quality and quantity. Get instant valuation.</p>
+                        <div class="step-time">⏱️ 10 minutes</div>
+                    </div>
+                </div>
+
+                <div class="timeline-step" data-aos="fade-left" data-aos-delay="200">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Get Matched & Funded</h3>
+                        <p>We connect you with lenders. Review terms, accept loan, receive money instantly.</p>
+                        <div class="step-time">⏱️ 24 hours</div>
+                    </div>
+                </div>
+
+                <div class="timeline-step" data-aos="fade-right" data-aos-delay="300">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>Sell & Repay</h3>
+                        <p>Sell your crops when ready. Repay loan automatically. Keep the profits.</p>
+                        <div class="step-time">⏱️ Your timeline</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Carousel -->
+    <section class="case-studies">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Success Stories</h2>
+                <p class="section-subtitle">Real impact on farming communities worldwide</p>
+            </div>
+
+            <div class="carousel-container">
+                <div class="carousel-track" id="caseStudiesTrack">
+                    <div class="case-study-slide active">
+                        <div class="case-image">
+                            <img src="assets/screenshots/case-study-1.svg" alt="Coffee farmers in Kenya" loading="lazy">
+                        </div>
+                        <div class="case-content">
+                            <h3>Coffee Cooperative Kenya</h3>
+                            <p class="case-goal">Expand organic coffee production and improve farmer livelihoods</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Hedera HTS</span>
+                                <span class="tech-tag">Price Oracles</span>
+                                <span class="tech-tag">Smart Escrow</span>
+                            </div>
+                            <div class="case-kpis">
+                                <div class="kpi">
+                                    <span class="kpi-label">Farmers Financed</span>
+                                    <span class="kpi-value">150 → 450</span>
+                                </div>
+                                <div class="kpi">
+                                    <span class="kpi-label">Average Income</span>
+                                    <span class="kpi-value">+65%</span>
+                                </div>
+                                <div class="kpi">
+                                    <span class="kpi-label">Loan Access Time</span>
+                                    <span class="kpi-value">30d → 2h</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-study-slide">
+                        <div class="case-image">
+                            <img src="assets/screenshots/case-study-2.svg" alt="Rice farmers in Vietnam" loading="lazy">
+                        </div>
+                        <div class="case-content">
+                            <h3>Rice Farmers Vietnam</h3>
+                            <p class="case-goal">Modernize irrigation systems and increase yield efficiency</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Hedera HCS</span>
+                                <span class="tech-tag">IoT Sensors</span>
+                                <span class="tech-tag">Weather Insurance</span>
+                            </div>
+                            <div class="case-kpis">
+                                <div class="kpi">
+                                    <span class="kpi-label">Yield Increase</span>
+                                    <span class="kpi-value">+40%</span>
+                                </div>
+                                <div class="kpi">
+                                    <span class="kpi-label">Water Efficiency</span>
+                                    <span class="kpi-value">+30%</span>
+                                </div>
+                                <div class="kpi">
+                                    <span class="kpi-label">Insurance Claims</span>
+                                    <span class="kpi-value">2min avg</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev" onclick="prevSlide()">&larr;</button>
+                    <div class="carousel-dots">
+                        <button class="dot active" onclick="currentSlide(0)"></button>
+                        <button class="dot" onclick="currentSlide(1)"></button>
+                    </div>
+                    <button class="carousel-btn next" onclick="nextSlide()">&rarr;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Transparent Pricing</h2>
+                <p class="section-subtitle">Choose the plan that fits your agricultural financing needs</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card glassmorphism" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pricing-header">
+                        <h3>Farmer Starter</h3>
+                        <div class="pricing-price">
+                            <span class="price-amount">Free</span>
+                            <span class="price-period">forever</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Up to $1,000 loans</li>
+                        <li><i class="fas fa-check"></i> Basic asset tokenization</li>
+                        <li><i class="fas fa-check"></i> 3-month repayment terms</li>
+                        <li><i class="fas fa-check"></i> Community support</li>
+                        <li><i class="fas fa-times"></i> Advanced analytics</li>
+                        <li><i class="fas fa-times"></i> Priority support</li>
+                    </ul>
+                    <button class="btn btn-outline">Get Started</button>
+                </div>
+
+                <div class="pricing-card glassmorphism featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="pricing-badge">⭐ Recommended</div>
+                    <div class="pricing-header">
+                        <h3>Cooperative Pro</h3>
+                        <div class="pricing-price">
+                            <span class="price-amount">2.5%</span>
+                            <span class="price-period">per loan</span>
+                        </div>
+                        <div class="pricing-savings">Save 40% vs banks</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Up to $50,000 loans</li>
+                        <li><i class="fas fa-check"></i> Advanced tokenization</li>
+                        <li><i class="fas fa-check"></i> Flexible repayment terms</li>
+                        <li><i class="fas fa-check"></i> Parametric insurance</li>
+                        <li><i class="fas fa-check"></i> Advanced analytics</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                    </ul>
+                    <button class="btn btn-primary">Start Free Trial</button>
+                </div>
+
+                <div class="pricing-card glassmorphism" data-aos="fade-up" data-aos-delay="300">
+                    <div class="pricing-header">
+                        <h3>Lender Enterprise</h3>
+                        <div class="pricing-price">
+                            <span class="price-amount">1.5%</span>
+                            <span class="price-period">management fee</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Unlimited investments</li>
+                        <li><i class="fas fa-check"></i> Portfolio management</li>
+                        <li><i class="fas fa-check"></i> Risk assessment tools</li>
+                        <li><i class="fas fa-check"></i> White-label options</li>
+                        <li><i class="fas fa-check"></i> Custom integrations</li>
+                        <li><i class="fas fa-check"></i> Dedicated support</li>
+                    </ul>
+                    <button class="btn btn-outline">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Compliance -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Enterprise-Grade Security & Compliance</h2>
+                <p class="section-subtitle">Built with institutional standards for global financial services</p>
+            </div>
+
+            <div class="trust-grid">
+                <div class="trust-category">
+                    <h3>Security Audits</h3>
+                    <div class="trust-items">
+                        <div class="trust-item">
+                            <img src="assets/icons/audit-1.svg" alt="CertiK Audit" loading="lazy">
+                            <span>CertiK Security Audit</span>
+                        </div>
+                        <div class="trust-item">
+                            <img src="assets/icons/audit-2.svg" alt="Quantstamp Audit" loading="lazy">
+                            <span>Quantstamp Audit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trust-category">
+                    <h3>Compliance</h3>
+                    <div class="trust-items">
+                        <div class="trust-item">
+                            <img src="assets/icons/compliance-1.svg" alt="SOC 2 Type II" loading="lazy">
+                            <span>SOC 2 Type II</span>
+                        </div>
+                        <div class="trust-item">
+                            <img src="assets/icons/compliance-2.svg" alt="ISO 27001" loading="lazy">
+                            <span>ISO 27001</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trust-category">
+                    <h3>Hedera Ecosystem</h3>
+                    <div class="trust-items">
+                        <div class="trust-item">
+                            <img src="assets/icons/hedera-council.svg" alt="Hedera Governing Council" loading="lazy">
+                            <span>Governing Council Member</span>
+                        </div>
+                        <div class="trust-item">
+                            <img src="assets/icons/hedera-partner.svg" alt="Official Partner" loading="lazy">
+                            <span>Official Partner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Everything you need to know about our platform</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What makes Hedera AgriFund different from traditional microfinance?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Unlike traditional microfinance, we leverage blockchain technology to create a transparent, global marketplace. Our platform tokenizes real agricultural assets, enabling instant liquidity and reducing intermediary costs by up to 70%.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How secure are my agricultural assets on the platform?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Your assets are secured through Hedera's enterprise-grade blockchain technology, multi-signature smart contracts, and third-party audited security protocols. All tokenized assets are backed by verified physical collateral stored in certified warehouses.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What types of crops can be tokenized as collateral?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We support major commodity crops including coffee, maize, rice, wheat, cocoa, and soybeans. Our platform integrates with certified storage facilities and quality assessors to ensure accurate valuation and secure storage of your agricultural assets.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How quickly can I access financing after submitting my application?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Once your assets are verified and tokenized, loan matching typically occurs within 2-24 hours. Fund disbursement happens instantly through stablecoin transfers once loan terms are agreed upon by both parties.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/Demo Form -->
+    <section class="contact-demo">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Ready to Transform Agriculture Finance?</h2>
+                    <p>Join thousands of farmers and lenders already using our platform to unlock agricultural potential worldwide.</p>
+
+                    <div class="contact-stats">
+                        <div class="contact-stat">
+                            <div class="stat-number">$18.5M+</div>
+                            <div class="stat-label">Loans Processed</div>
+                        </div>
+                        <div class="contact-stat">
+                            <div class="stat-number">1,247</div>
+                            <div class="stat-label">Active Users</div>
+                        </div>
+                        <div class="contact-stat">
+                            <div class="stat-number">45</div>
+                            <div class="stat-label">Countries</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-form glassmorphism">
+                    <h3>Request a Demo</h3>
+                    <form id="demoForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="firstName" placeholder="First Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="lastName" placeholder="Last Name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Work Email" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="userType" required>
+                                <option value="">I am a...</option>
+                                <option value="farmer">Farmer</option>
+                                <option value="cooperative">Cooperative</option>
+                                <option value="lender">Lender/Investor</option>
+                                <option value="enterprise">Enterprise</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="Tell us about your needs" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary full-width">
+                            <span>Request Demo</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <div class="brand-text">
+                            <span class="brand-name">Hedera AgriFund</span>
+                            <span class="brand-tagline">Powered by Hedera</span>
+                        </div>
+                    </div>
+                    <p>Revolutionizing agricultural finance through blockchain technology, connecting farmers with global capital markets.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Platform</h4>
+                        <ul>
+                            <li><a href="#how-it-works">How it Works</a></li>
+                            <li><a href="#pricing">Pricing</a></li>
+                            <li><a href="#">API Documentation</a></li>
+                            <li><a href="#">Integration Guide</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Case Studies</a></li>
+                            <li><a href="#">Whitepapers</a></li>
+                            <li><a href="#">Help Center</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                            <li><a href="#">Security</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 Hedera AgriFund. All rights reserved.</p>
+                    <div class="footer-utilities">
+                        <div class="language-selector">
+                            <button class="language-btn active" data-lang="fr">Français</button>
+                            <button class="language-btn" data-lang="en">English</button>
+                        </div>
+                        <button class="theme-toggle" onclick="toggleTheme()">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </main>
+
+    <!-- Enhanced Scripts -->
+    <script src="js/ux-enhancements.js"></script>
+    <script src="js/performance-optimizer.js"></script>
+    <script src="js/accessibility-manager.js"></script>
+    <script src="js/toast-notifications.js"></script>
+    <script src="js/skeleton-loader.js"></script>
+    <script src="js/micro-interactions.js"></script>
+    <script src="js/drag-drop.js"></script>
+    <script src="js/chart-component.js"></script>
+    <script src="js/pdf-export.js"></script>
+    <script src="js/hero-optimizations.js"></script>
+    <script src="js/language-manager.js"></script>
+    <script src="js/smart-loan-card.js"></script>
+    <script src="js/modern-ui.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- Three.js Hero Canvas -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "./node_modules/three/build/three.module.js",
+            "three/addons/": "./node_modules/three/examples/jsm/"
+        }
+    }
+    </script>
+    <script src="js/three-hero/hero-integration.js" type="module"></script>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+    
+    <!-- Async load for performance -->
+    <script async src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+</body>
+</html>

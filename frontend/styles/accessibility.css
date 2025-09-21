@@ -1,0 +1,230 @@
+/* Accessibility Enhancements */
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #000000;
+        --secondary-color: #000000;
+        --text-color: #000000;
+        --background-color: #ffffff;
+        --border-color: #000000;
+    }
+    
+    .btn {
+        border: 2px solid #000000 !important;
+        font-weight: bold !important;
+    }
+    
+    .card, .modal-content {
+        border: 2px solid #000000 !important;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .skeleton {
+        animation: none !important;
+    }
+    
+    .loading-spinner i {
+        animation: none !important;
+    }
+}
+
+/* Focus Management */
+.focus-trap {
+    position: relative;
+}
+
+.focus-visible {
+    outline: 3px solid var(--primary-color) !important;
+    outline-offset: 2px !important;
+}
+
+/* Screen Reader Only Content */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Skip Links */
+.skip-links a:focus {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 10000;
+}
+
+/* Enhanced Focus Indicators */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* ARIA Live Regions */
+#live-region {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* Loading States */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loading-overlay.active {
+    display: flex;
+}
+
+.loading-spinner {
+    text-align: center;
+    color: white;
+}
+
+.loading-spinner i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Notification Container */
+.notification-container {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+.notification-container > * {
+    pointer-events: auto;
+}
+
+/* Enhanced Button States */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn:disabled:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Form Validation */
+.form-group.error input,
+.form-group.error select,
+.form-group.error textarea {
+    border-color: var(--danger-color) !important;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1) !important;
+}
+
+.validation-message {
+    display: none;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background: rgba(220, 53, 69, 0.1);
+    color: var(--danger-color);
+    border-radius: 4px;
+    font-size: 0.875rem;
+    border-left: 3px solid var(--danger-color);
+}
+
+.form-group.error .validation-message {
+    display: block;
+}
+
+/* Mobile Accessibility */
+@media (max-width: 768px) {
+    .skip-links {
+        font-size: 16px;
+        padding: 12px;
+    }
+    
+    button, .btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    input, select, textarea {
+        min-height: 44px;
+    }
+}
+
+/* Dark Theme Accessibility */
+.dark-theme {
+    --focus-color: #4ade80;
+}
+
+.dark-theme button:focus-visible,
+.dark-theme input:focus-visible,
+.dark-theme select:focus-visible,
+.dark-theme textarea:focus-visible,
+.dark-theme a:focus-visible {
+    outline-color: var(--focus-color);
+}
+
+/* Print Styles */
+@media print {
+    .skip-links,
+    .notification-container,
+    .loading-overlay,
+    .modal,
+    nav,
+    .btn {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .card, .dashboard-card {
+        border: 1px solid #000 !important;
+        break-inside: avoid;
+    }
+}

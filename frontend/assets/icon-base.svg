@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="240" fill="#4CAF50" stroke="#2E7D32" stroke-width="8"/>
+
+  <!-- Agricultural symbol - wheat/seedling -->
+  <g transform="translate(256,256)">
+    <!-- Main stem -->
+    <rect x="-4" y="-80" width="8" height="160" fill="#FFC107" rx="4"/>
+
+    <!-- Leaves -->
+    <ellipse cx="-25" cy="-40" rx="20" ry="8" fill="#8BC34A" transform="rotate(-30)"/>
+    <ellipse cx="25" cy="-40" rx="20" ry="8" fill="#8BC34A" transform="rotate(30)"/>
+    <ellipse cx="-30" cy="-10" rx="22" ry="10" fill="#689F38" transform="rotate(-20)"/>
+    <ellipse cx="30" cy="-10" rx="22" ry="10" fill="#689F38" transform="rotate(20)"/>
+
+    <!-- Grain heads -->
+    <ellipse cx="0" cy="-70" rx="12" ry="20" fill="#FFC107"/>
+    <ellipse cx="0" cy="-70" rx="8" ry="16" fill="#FFD54F"/>
+
+    <!-- Small grain details -->
+    <circle cx="-3" cy="-75" r="2" fill="#FF8F00"/>
+    <circle cx="3" cy="-75" r="2" fill="#FF8F00"/>
+    <circle cx="0" cy="-65" r="2" fill="#FF8F00"/>
+    <circle cx="-2" cy="-70" r="1.5" fill="#FF8F00"/>
+    <circle cx="2" cy="-70" r="1.5" fill="#FF8F00"/>
+  </g>
+
+  <!-- Optional: Add "AF" text for AgriFund -->
+  <text x="256" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white">AF</text>
+</svg>
+

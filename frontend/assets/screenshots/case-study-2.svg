@@ -1,0 +1,91 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skyGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#98FB98;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4682B4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E90FF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Sky background -->
+  <rect width="400" height="180" fill="url(#skyGradient2)"/>
+  
+  <!-- Rice fields (water) -->
+  <rect x="0" y="180" width="400" height="70" fill="url(#waterGradient)"/>
+  
+  <!-- Rice plants -->
+  <g stroke="#228B22" stroke-width="2" fill="none">
+    <!-- Row 1 -->
+    <path d="M20,240 Q25,220 30,240 Q35,220 40,240"/>
+    <path d="M60,240 Q65,220 70,240 Q75,220 80,240"/>
+    <path d="M100,240 Q105,220 110,240 Q115,220 120,240"/>
+    <path d="M140,240 Q145,220 150,240 Q155,220 160,240"/>
+    <path d="M180,240 Q185,220 190,240 Q195,220 200,240"/>
+    <path d="M220,240 Q225,220 230,240 Q235,220 240,240"/>
+    <path d="M260,240 Q265,220 270,240 Q275,220 280,240"/>
+    <path d="M300,240 Q305,220 310,240 Q315,220 320,240"/>
+    <path d="M340,240 Q345,220 350,240 Q355,220 360,240"/>
+    
+    <!-- Row 2 -->
+    <path d="M40,225 Q45,205 50,225 Q55,205 60,225"/>
+    <path d="M80,225 Q85,205 90,225 Q95,205 100,225"/>
+    <path d="M120,225 Q125,205 130,225 Q135,205 140,225"/>
+    <path d="M160,225 Q165,205 170,225 Q175,205 180,225"/>
+    <path d="M200,225 Q205,205 210,225 Q215,205 220,225"/>
+    <path d="M240,225 Q245,205 250,225 Q255,205 260,225"/>
+    <path d="M280,225 Q285,205 290,225 Q295,205 300,225"/>
+    <path d="M320,225 Q325,205 330,225 Q335,205 340,225"/>
+  </g>
+  
+  <!-- Rice grains -->
+  <g fill="#F0E68C">
+    <ellipse cx="25" cy="215" rx="2" ry="3"/>
+    <ellipse cx="35" cy="215" rx="2" ry="3"/>
+    <ellipse cx="65" cy="215" rx="2" ry="3"/>
+    <ellipse cx="75" cy="215" rx="2" ry="3"/>
+    <ellipse cx="105" cy="215" rx="2" ry="3"/>
+    <ellipse cx="115" cy="215" rx="2" ry="3"/>
+    <ellipse cx="145" cy="215" rx="2" ry="3"/>
+    <ellipse cx="155" cy="215" rx="2" ry="3"/>
+    <ellipse cx="185" cy="215" rx="2" ry="3"/>
+    <ellipse cx="195" cy="215" rx="2" ry="3"/>
+    <ellipse cx="225" cy="215" rx="2" ry="3"/>
+    <ellipse cx="235" cy="215" rx="2" ry="3"/>
+    <ellipse cx="265" cy="215" rx="2" ry="3"/>
+    <ellipse cx="275" cy="215" rx="2" ry="3"/>
+    <ellipse cx="305" cy="215" rx="2" ry="3"/>
+    <ellipse cx="315" cy="215" rx="2" ry="3"/>
+    <ellipse cx="345" cy="215" rx="2" ry="3"/>
+    <ellipse cx="355" cy="215" rx="2" ry="3"/>
+  </g>
+  
+  <!-- Farmers working -->
+  <circle cx="90" cy="200" r="8" fill="#D2691E"/>
+  <rect x="85" y="208" width="10" height="20" fill="#4169E1"/>
+  <rect x="82" y="215" width="16" height="15" fill="#8B4513"/>
+  
+  <circle cx="250" cy="205" r="8" fill="#D2691E"/>
+  <rect x="245" y="213" width="10" height="20" fill="#DC143C"/>
+  <rect x="242" y="220" width="16" height="15" fill="#8B4513"/>
+  
+  <!-- Traditional hat -->
+  <ellipse cx="90" cy="195" rx="12" ry="4" fill="#DEB887"/>
+  <ellipse cx="250" cy="200" rx="12" ry="4" fill="#DEB887"/>
+  
+  <!-- Water reflection -->
+  <rect x="0" y="240" width="400" height="10" fill="rgba(255,255,255,0.3)"/>
+  
+  <!-- Clouds -->
+  <ellipse cx="100" cy="40" rx="20" ry="12" fill="white" opacity="0.8"/>
+  <ellipse cx="115" cy="35" rx="15" ry="10" fill="white" opacity="0.8"/>
+  <ellipse cx="300" cy="60" rx="25" ry="15" fill="white" opacity="0.8"/>
+  <ellipse cx="320" cy="55" rx="18" ry="12" fill="white" opacity="0.8"/>
+  
+  <!-- Text overlay -->
+  <rect x="10" y="250" width="380" height="40" fill="rgba(0,0,0,0.7)" rx="5"/>
+  <text x="200" y="270" text-anchor="middle" fill="white" font-family="Arial" font-size="16" font-weight="bold">Rice Farmers - Vietnam</text>
+  <text x="200" y="285" text-anchor="middle" fill="#00d4aa" font-family="Arial" font-size="12">Modern Irrigation Systems</text>
+</svg>

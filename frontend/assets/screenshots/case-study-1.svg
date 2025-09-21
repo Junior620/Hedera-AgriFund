@@ -1,0 +1,47 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#98FB98;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="mountainGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#228B22;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Sky background -->
+  <rect width="400" height="200" fill="url(#skyGradient)"/>
+  
+  <!-- Mountains -->
+  <polygon points="0,150 100,80 200,120 300,60 400,100 400,200 0,200" fill="url(#mountainGradient)"/>
+  
+  <!-- Coffee plants -->
+  <circle cx="80" cy="180" r="25" fill="#228B22"/>
+  <circle cx="150" cy="185" r="20" fill="#32CD32"/>
+  <circle cx="220" cy="175" r="30" fill="#228B22"/>
+  <circle cx="300" cy="190" r="22" fill="#32CD32"/>
+  
+  <!-- Coffee beans -->
+  <ellipse cx="80" cy="175" rx="3" ry="5" fill="#8B4513"/>
+  <ellipse cx="85" cy="180" rx="3" ry="5" fill="#8B4513"/>
+  <ellipse cx="220" cy="170" rx="3" ry="5" fill="#8B4513"/>
+  <ellipse cx="225" cy="175" rx="3" ry="5" fill="#8B4513"/>
+  
+  <!-- Farmers (simple figures) -->
+  <circle cx="120" cy="160" r="8" fill="#D2691E"/>
+  <rect x="115" y="168" width="10" height="20" fill="#4169E1"/>
+  <rect x="112" y="175" width="16" height="15" fill="#8B4513"/>
+  
+  <circle cx="180" cy="165" r="8" fill="#D2691E"/>
+  <rect x="175" y="173" width="10" height="20" fill="#DC143C"/>
+  <rect x="172" y="180" width="16" height="15" fill="#8B4513"/>
+  
+  <!-- Sun -->
+  <circle cx="350" cy="50" r="20" fill="#FFD700"/>
+  
+  <!-- Text overlay -->
+  <rect x="10" y="250" width="380" height="40" fill="rgba(0,0,0,0.7)" rx="5"/>
+  <text x="200" y="270" text-anchor="middle" fill="white" font-family="Arial" font-size="16" font-weight="bold">Coffee Farmers - Kenya</text>
+  <text x="200" y="285" text-anchor="middle" fill="#00d4aa" font-family="Arial" font-size="12">Organic Coffee Production</text>
+</svg>

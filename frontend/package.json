@@ -1,0 +1,21 @@
+{
+  "name": "hedera-agrifund-frontend",
+  "version": "1.0.0",
+  "description": "Hedera AgriFund frontend with Three.js hero section",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "python -m http.server 8000"
+  },
+  "dependencies": {
+    "three": "^0.158.0",
+    "chart.js": "^4.4.0",
+    "jspdf": "^2.5.1"
+  },
+  "devDependencies": {
+    "vite": "^7.1.6"
+  },
+  "type": "module"
+}

@@ -1,0 +1,26 @@
+<svg width="80" height="60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="isoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E40AF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="80" height="60" rx="8" fill="url(#isoGradient)"/>
+  
+  <!-- ISO symbol -->
+  <circle cx="40" cy="22" r="14" fill="none" stroke="white" stroke-width="2"/>
+  <circle cx="40" cy="22" r="8" fill="none" stroke="white" stroke-width="2"/>
+  <circle cx="40" cy="22" r="4" fill="white"/>
+  
+  <!-- Security elements -->
+  <rect x="32" y="14" width="2" height="16" fill="white"/>
+  <rect x="46" y="14" width="2" height="16" fill="white"/>
+  <rect x="36" y="10" width="8" height="2" fill="white"/>
+  <rect x="36" y="32" width="8" height="2" fill="white"/>
+  
+  <!-- Text -->
+  <text x="40" y="45" text-anchor="middle" fill="white" font-family="Arial" font-size="8" font-weight="bold">ISO</text>
+  <text x="40" y="52" text-anchor="middle" fill="white" font-family="Arial" font-size="8" font-weight="bold">27001</text>
+</svg>

@@ -1,0 +1,332 @@
+/* HERO SECTION - CORRECTION COMPLÈTE Z-INDEX ET ISOLATION */
+
+/* === HERO ISOLATION COMPLÈTE === */
+
+/* Hero container avec isolation et stacking context propre */
+.hero {
+    position: relative !important;
+    isolation: isolate !important;
+    z-index: 0 !important;
+    overflow: hidden !important;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    /* Supprimer les transforms globaux problématiques */
+    transform: none !important;
+    will-change: auto !important;
+    filter: none !important;
+}
+
+/* Calques de fond avec hiérarchie z-index stricte */
+.hero-background {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    pointer-events: none !important;
+    background: transparent !important;
+}
+
+#hero-canvas {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+    background: transparent !important;
+}
+
+.hero-gradient {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+    background: radial-gradient(ellipse at center,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.2) 100%) !important;
+}
+
+/* Contenu hero toujours au-dessus */
+.hero-container {
+    position: relative !important;
+    z-index: 3 !important;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    /* Supprimer transforms problématiques */
+    transform: none !important;
+    filter: none !important;
+    will-change: auto !important;
+}
+
+.hero-content,
+.hero-visual {
+    /* Supprimer transforms sur les wrappers principaux */
+    transform: none !important;
+    filter: none !important;
+    will-change: auto !important;
+}
+
+/* Transition douce en bas de hero pour masquer micro-coupures GPU */
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2rem;
+    background: linear-gradient(to bottom,
+        transparent 0%,
+        rgba(248, 250, 252, 0.8) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* === SECTIONS SUIVANTES - Z-INDEX CONTRÔLÉ === */
+
+/* Toutes les sections après hero avec z-index neutre pour éviter superposition */
+.metrics-strip,
+.value-props,
+.how-it-works,
+.case-studies,
+.pricing,
+.trust-section,
+.faq,
+.contact-demo,
+.footer {
+    position: relative !important;
+    z-index: 0 !important;
+    /* S'assurer qu'elles ne créent pas de stacking context */
+    isolation: auto !important;
+}
+
+/* === NAVBAR AVEC ISOLATION === */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    isolation: isolate !important; /* Éviter conflits avec backdrop-filter */
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* === CANVAS FALLBACK === */
+
+.hero-fallback {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0.3;
+}
+
+.fallback-pattern {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+    animation: float 20s ease-in-out infinite;
+}
+
+.fallback-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        45deg,
+        rgba(59, 130, 246, 0.02) 0%,
+        rgba(16, 185, 129, 0.02) 50%,
+        rgba(139, 92, 246, 0.02) 100%
+    );
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(30px, -30px) rotate(120deg); }
+    66% { transform: translate(-20px, 20px) rotate(240deg); }
+}
+
+/* === RESPONSIVE HERO === */
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 80vh;
+        padding-top: 4rem;
+        padding-bottom: 3rem;
+    }
+
+    .hero-container {
+        padding: 0 1rem;
+    }
+}
+
+/* === DARK THEME HERO === */
+
+.dark-theme .hero::after {
+    background: linear-gradient(to bottom,
+        transparent 0%,
+        rgba(11, 18, 32, 0.8) 100%);
+}
+
+.dark-theme .navbar {
+    background: rgba(11, 18, 32, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* === CORRECTIONS SUPPLÉMENTAIRES === */
+
+/* S'assurer que les éléments UI restent interactifs */
+.hero .btn,
+.hero .hero-actions,
+.hero .hero-badge {
+    position: relative;
+    z-index: 4;
+}
+
+/* Éviter les conflits avec les modals */
+.modal,
+.modal-backdrop {
+    z-index: 2000;
+}
+
+/* Performance - Éviter reflow sur scroll */
+.hero,
+.hero-background,
+#hero-canvas,
+.hero-gradient {
+    will-change: auto;
+    backface-visibility: hidden;
+}
+
+/* Correction pour les éléments Three.js */
+canvas[data-engine="three.js"] {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    pointer-events: none !important;
+    background: transparent !important;
+}
+
+/* === DARK THEME CORRECTIONS POUR CAROUSEL === */
+
+/* Section case studies en mode sombre */
+.dark-theme .case-studies {
+    background: var(--color-neutral-800);
+}
+
+/* Slides du carousel en mode sombre */
+.dark-theme .case-study-slide {
+    background: var(--color-neutral-900);
+    color: var(--color-neutral-100);
+}
+
+/* Titres et contenu en mode sombre */
+.dark-theme .case-content h3 {
+    color: var(--color-neutral-100);
+}
+
+.dark-theme .case-goal {
+    color: var(--color-neutral-400);
+}
+
+/* Tags tech en mode sombre */
+.dark-theme .tech-tag {
+    background: var(--color-primary-900);
+    color: var(--color-primary-200);
+}
+
+/* KPIs en mode sombre */
+.dark-theme .kpi {
+    background: var(--color-neutral-800);
+}
+
+.dark-theme .kpi-label {
+    color: var(--color-neutral-400);
+}
+
+.dark-theme .kpi-value {
+    color: var(--color-accent-400);
+}
+
+/* Boutons de navigation carousel - CORRECTION FORCÉE VISIBILITÉ */
+.carousel-btn {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 2px solid rgba(0, 0, 0, 0.1) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    font-size: 18px !important;
+    color: #333 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+.carousel-btn:hover {
+    background: rgba(255, 255, 255, 1) !important;
+    border-color: #00d4aa !important;
+    color: #00d4aa !important;
+    transform: scale(1.1) !important;
+    box-shadow: 0 4px 12px rgba(0, 212, 170, 0.3) !important;
+}
+
+/* Mode sombre - FORCER LA VISIBILITÉ DES BOUTONS */
+.dark-theme .carousel-btn {
+    background: rgba(45, 52, 54, 0.95) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark-theme .carousel-btn:hover {
+    background: rgba(55, 65, 71, 1) !important;
+    border-color: #00d4aa !important;
+    color: #00d4aa !important;
+    transform: scale(1.1) !important;
+    box-shadow: 0 4px 12px rgba(0, 212, 170, 0.4) !important;
+}
+
+/* Correction du texte dans les slides - MODE SOMBRE */
+.dark-theme .case-study-slide {
+    background: rgba(26, 32, 44, 0.95) !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-theme .case-content h3 {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 600 !important;
+}
+
+.dark-theme .case-goal {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* KPIs plus visibles en mode sombre */
+.dark-theme .kpi {
+    background: rgba(45, 52, 54, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-theme .kpi-label {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.dark-theme .kpi-value {
+    color: #00d4aa !important;
+    font-weight: 700 !important;
+}
+
+/* Tags tech plus visibles */
+.dark-theme .tech-tag {
+    background: rgba(0, 212, 170, 0.2) !important;
+    color: #00d4aa !important;
+    border: 1px solid rgba(0, 212, 170, 0.3) !important;
+}

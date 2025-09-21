@@ -1,0 +1,326 @@
+/* Section Spacing Fixes - Hedera AgriFund */
+
+/* === Global Section Spacing === */
+
+/* Ensure consistent spacing between all sections */
+section {
+    position: relative;
+    isolation: isolate;
+}
+
+/* Hero Section - Add bottom spacing and prevent overflow */
+.hero {
+    margin-bottom: 0;
+    padding-bottom: 4rem; /* RÉDUIT pour éviter le débordement */
+    overflow: hidden; /* CRITIQUE: Empêcher tout débordement */
+    position: relative;
+    isolation: isolate;
+    z-index: 0;
+}
+
+/* Hero container - Confiner le contenu */
+.hero-container {
+    position: relative;
+    z-index: 3;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Hero visual - Position contrôlée */
+.hero-visual {
+    position: relative;
+    z-index: 0;
+    overflow: visible; /* Permettre la visibilité normale de la carte */
+}
+
+/* Metrics Strip - CORRECTION z-index */
+.metrics-strip {
+    margin-top: -2rem; /* OVERLAP pour couvrir tout gap */
+    margin-bottom: 0;
+    padding-top: 6rem; /* Compenser l'overlap */
+    padding-bottom: 4rem;
+    position: relative;
+    z-index: 0; /* CHANGÉ de 8 à 0 */
+}
+
+/* Value Props Section - CORRECTION z-index */
+.value-props {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 5rem; /* Larger spacing for visual separation */
+    padding-bottom: 5rem;
+    position: relative;
+    z-index: 0;
+}
+
+/* How It Works Section - CORRECTION z-index */
+.how-it-works {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    position: relative;
+    z-index: 0;
+}
+
+/* Case Studies Section - CORRECTION z-index */
+.case-studies {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    position: relative;
+    z-index: 0;
+}
+
+/* Pricing Section - CORRECTION z-index */
+.pricing {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    position: relative;
+    z-index: 0;
+}
+
+/* Trust Section - CORRECTION z-index */
+.trust-section {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 4rem; /* Slightly smaller for visual balance */
+    padding-bottom: 4rem;
+    position: relative;
+    z-index: 0;
+}
+
+/* FAQ Section - CORRECTION z-index */
+.faq {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    position: relative;
+    z-index: 0;
+}
+
+/* Contact Demo Section - CORRECTION z-index */
+.contact-demo {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    position: relative;
+    z-index: 0;
+}
+
+/* Footer - CORRECTION z-index */
+.footer {
+    position: relative;
+    z-index: 0;
+}
+
+/* === Section Headers - Consistent spacing === */
+.section-header {
+    margin-bottom: 3rem; /* Consistent spacing below headers */
+}
+
+.section-title {
+    margin-bottom: 1rem; /* Space below main title */
+}
+
+.section-subtitle {
+    margin-bottom: 0; /* No extra margin at bottom */
+}
+
+/* === Responsive Spacing Adjustments === */
+
+/* Mobile Spacing - Reduce on smaller screens */
+@media (max-width: 768px) {
+    .hero {
+        padding-bottom: 3rem;
+    }
+
+    .metrics-strip,
+    .value-props,
+    .how-it-works,
+    .case-studies,
+    .pricing,
+    .faq,
+    .contact-demo {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .trust-section {
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+    }
+
+    .footer {
+        padding-top: 3rem;
+    }
+
+    .section-header {
+        margin-bottom: 2rem;
+    }
+}
+
+/* Large Desktop - Increase spacing for better visual hierarchy */
+@media (min-width: 1200px) {
+    .hero {
+        padding-bottom: 6rem;
+    }
+
+    .value-props,
+    .how-it-works,
+    .case-studies,
+    .pricing,
+    .faq,
+    .contact-demo {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+
+    .metrics-strip {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+
+    .trust-section {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+
+    .section-header {
+        margin-bottom: 4rem;
+    }
+}
+
+/* === Visual Separators Between Sections === */
+
+/* Add subtle visual separation between alternating sections */
+.metrics-strip {
+    background: var(--color-neutral-50);
+    border-top: 1px solid var(--color-neutral-200);
+    border-bottom: 1px solid var(--color-neutral-200);
+}
+
+.how-it-works {
+    background: linear-gradient(135deg, var(--color-neutral-50), var(--color-primary-50));
+}
+
+.case-studies {
+    background: var(--color-neutral-50);
+}
+
+.pricing {
+    background: linear-gradient(135deg,
+        var(--color-primary-50) 0%,
+        var(--color-secondary-50) 50%,
+        var(--color-neutral-50) 100%);
+}
+
+.trust-section {
+    background: white;
+    border-top: 1px solid var(--color-neutral-200);
+    border-bottom: 1px solid var(--color-neutral-200);
+}
+
+.faq {
+    background: var(--color-neutral-50);
+}
+
+/* Dark theme adjustments */
+.dark-theme .metrics-strip {
+    background: var(--color-neutral-800);
+    border-color: var(--color-neutral-700);
+}
+
+.dark-theme .how-it-works {
+    background: linear-gradient(135deg, var(--color-neutral-800), var(--color-neutral-900));
+}
+
+.dark-theme .case-studies {
+    background: var(--color-neutral-800);
+}
+
+.dark-theme .pricing {
+    background: linear-gradient(135deg,
+        var(--color-neutral-900) 0%,
+        var(--color-neutral-800) 50%,
+        var(--color-neutral-900) 100%);
+}
+
+.dark-theme .trust-section {
+    background: var(--color-neutral-900);
+    border-color: var(--color-neutral-700);
+}
+
+.dark-theme .faq {
+    background: var(--color-neutral-800);
+}
+
+/* === Fix Container Overlapping === */
+
+/* Ensure containers don't overlap */
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Special handling for sections with background elements */
+.hero-background,
+.hero-gradient {
+    z-index: 1;
+}
+
+.hero-container {
+    z-index: 3;
+}
+
+/* === Navigation Bar Compensation === */
+
+/* Adjust first section to account for fixed navbar */
+.hero {
+    padding-top: 5rem; /* Account for navbar height + extra space */
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 4rem; /* Smaller on mobile */
+    }
+}
+
+/* === Smooth Transitions Between Sections === */
+
+/* Add subtle entrance animations for sections */
+section {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Intersection Observer classes for scroll animations */
+.section-animate {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.section-animate.section-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* === Print Styles === */
+@media print {
+    section {
+        margin: 0;
+        padding: 1rem 0;
+        page-break-inside: avoid;
+    }
+
+    .section-header {
+        margin-bottom: 1rem;
+    }
+}
